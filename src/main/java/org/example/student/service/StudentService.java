@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 public class StudentService implements IStudentService {
 
     private final List<Student> students = new ArrayList<>();
+    private Long nextId = 1L; // Générateur d'ID
 
     @Override
     public List<Student> findAll() {
@@ -28,9 +29,14 @@ public class StudentService implements IStudentService {
 
     @Override
     public void save(Student student) {
-        students.removeIf(s -> s.getId().equals(student.getId()));
-        students.add(student);
-    }
+        if (student.getId() == null) {
+            student.setId(nextId++);
+            students.add(student);
+        } else {
+            students.removeIf(s -> s.getId().equals(student.getId()));
+            students.add(student);
+        }
+    } // ← ICI tu avais oublié cette accolade
 
     @Override
     public void delete(Long id) {

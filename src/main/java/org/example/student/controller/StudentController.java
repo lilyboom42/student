@@ -49,7 +49,7 @@ public class StudentController {
 
     @GetMapping("/search")
     public String searchForm() {
-        return "search";
+        return "searchResults";
     }
 
     @PostMapping("/search")
