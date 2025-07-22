@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang=en xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Détails</title>
+</head>
+<body>
+<h1>Détails de l'étudiant</h1>
+<p>Prénom : <span th:text="${student.firstName}"></span></p>
+<p>Nom : <span th:text="${student.lastName}"></span></p>
+<p>Age : <span th:text="${student.age}"></span></p>
+<p>Email :<span th:text="${student.email}"></span></p>
+<p><a th:href="@{/students}">Retour à la liste</a></p>
+<p><a th:href="@{/}">Retour à l'accueil</a></p>
+
+</body>
+</html>
